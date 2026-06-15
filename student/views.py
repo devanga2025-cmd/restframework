@@ -1,12 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse
+import asyncio
 
-# Create your views here.
+async def student(request):
+    await asyncio.sleep(2)
 
-def student(request):
-    classes = [ {
-        "name": "John Doe",
-        "age": 20,
-        "major": "Computer Science"
-    }]
-    return HttpResponse(classes)
+    return JsonResponse({
+        "message": "Async API Working"
+    })
